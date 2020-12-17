@@ -1,0 +1,29 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-image: url(https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+}
+form{
+    margin-top: 20px;
+}
+div.card-header {
+    background-color: rgba(91, 148, 233, 0.452);
+}
+img {
+    width: 100%;
+   
+}
+input[type="sumit"]{
+    cursor:poiter;
+}
+input[type="password"]{
+    cursor:poiter;
+}
+footer {
+    width: 100%;
+}
