@@ -18,7 +18,7 @@ function mostrarMensaje($rta) {
             $mensaje = "<b style='color: green; text-align:center'>¡Turno creado con exito!</b>";
         break;
         case "0x002":
-            $mensaje = "<b style='color: red; text-align:center'>No se pudo crear el turno.</b>";
+            $mensaje = "<b style='color: red; text-align:center'>No hay disponibilidad horaria.</b>";
         break;
         case "0x003":
             $mensaje = "<b style='color: red; text-align:center'>El email no puede estar vacio.</b>";
