@@ -50,18 +50,15 @@ if (isset($_POST['accion']) && $_POST['accion'] == 'Ingresar') {
 
 else if(isset($_POST['accion']) && $_POST['accion'] == 'Reservar') {
     $masaje=$_POST['masaje'];
-    $fecha=$_POST['fecha'];
-    $horario=$_POST['horario'];
+    $fechaHora=$_POST['fechaHora'];
     if(empty($masaje)){
-        header("location:./?page=turno&rta=0x003");
-    }elseif(empty($fecha)){
-        header("location:./?page=turno&rta=0x003");
-    }elseif(empty($horario)){
-        header("location:./?page=turno&rta=0x003");
+        header("location:./?page=turno&rta=0x018");
+    }elseif(empty($fechaHora)){
+        header("location:./?page=turno&rta=0x017");
     }elseif(is_numeric($masaje)){
         header("location:./?page=turno&rta=0x004");
     }else{
-        $rta=crearTurno($masaje,$fecha,$horario);
+        $rta=crearTurno($masaje,$fechaHora);
         header("location:./?page=turno&rta=" . $rta);
     }
 }

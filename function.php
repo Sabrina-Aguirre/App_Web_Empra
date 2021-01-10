@@ -21,10 +21,10 @@ function mostrarMensaje($rta) {
             $mensaje = "<b style='color: red; text-align:center'>No se pudo crear el turno.</b>";
         break;
         case "0x003":
-            $mensaje = "<b style='color: red; text-align:center'>Complete los campos requeridos.</b>";
+            $mensaje = "<b style='color: red; text-align:center'>El email no puede estar vacio.</b>";
         break;
         case "0x004":
-            $mensaje = "<b style='color: red; text-align:center'>Complete los campos de forma correcta.</b>";
+            $mensaje = "<b style='color: red; text-align:center'>Complete el  campo email de forma correcta.</b>";
         break;
         case "0x005":
             $mensaje = "<b style='color: green; text-align:center'>Se enviaron correcatmente los datos del formulario.</b>";
@@ -33,26 +33,54 @@ function mostrarMensaje($rta) {
             $mensaje = "<b style='color: green; text-align:center'>Usuario registrado.</b>";
         break;
         case "0x007":
-            $mensaje = "<b style='color: red; text-align:center;'>email o clave incorrecta</b>";
+            $mensaje = "<b style='color: red; text-align:center;'>email o contraseña incorrecta</b>";
         break;
         case "0x008":
             $mensaje = "<b style='color: red; text-align:center'>Debe iniciar sesión para ingresar.</b>";
+        break;
+        case "0x009":
+            $mensaje = "<b style='color: red; text-align:center'>La contraseña no puede estar vacia.</b>";
+        break;
+        case "0x010":
+            $mensaje = "<b style='color: red; text-align:center'>La contraseña no puede contener menos de 8 caracteres.</b>";
+        break;
+        case "0x011":
+            $mensaje = "<b style='color: red; text-align:center'>El nombre no puede estar vacio.</b>";
+        break;
+        case "0x012":
+            $mensaje = "<b style='color: red; text-align:center'>El apellido no puede estar vacio.</b>";
+        break;
+        case "0x013":
+            $mensaje = "<b style='color: red; text-align:center'>El nombre no puede contener numeros.</b>";
+        break;
+        case "0x014":
+            $mensaje = "<b style='color: red; text-align:center'>El apellido no puede contener numeros.</b>";
+        break;
+        case "0x015":
+            $mensaje = "<b style='color: red; text-align:center'>El nombre no puede contener menos de 3 caracteres.</b>";
+        break;
+        case "0x016":
+            $mensaje = "<b style='color: red; text-align:center'>El apellido no puede contener menos de 3 caracteres.</b>";
+        break;
+        case "0x017":
+            $mensaje="<b style='color: red; text-aling: center'>La fecha y horario no pueden estar vacios.</b>";
+        case "0x018":
+            $mensaje = "<b style='color: red; text-align:center'>El masaje no puede estar vacio.</b>";
         break;
     }
 
     return $mensaje;
 }
 
-function crearTurno($masaje, $fecha, $horario) {
+function crearTurno($masaje, $fechaHora) {
     
     global $conexion;
 
     try {
-        $sql = "INSERT INTO turno (masaje,fecha,horario) VALUES (?,?,?)";
+        $sql = "INSERT INTO agendados (masaje,fechaHora) VALUES (?,?)";
         $stmt = $conexion-> prepare($sql);
         $stmt-> bindParam(1,$masaje,PDO::PARAM_STR);
-        $stmt-> bindParam(2,$fecha,PDO::PARAM_STR);
-        $stmt-> bindParam(3,$horario,PDO::PARAM_STR);
+        $stmt-> bindParam(2,$fechaHora,PDO::PARAM_STR);
 
         if ($stmt -> execute()) {
             return $rta = "0x001";

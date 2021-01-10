@@ -1,4 +1,3 @@
-
 <?php
 
 session_start();
@@ -30,15 +29,15 @@ if(!isset($_SESSION['email'])) {header("location: ./?page=ingreso&rta=0x008");}
                     <option value="reflex">Reflexología Podal</option>
                   </select>
                   <span class="input-group-text text-center">
-                    <p class="description text-center">¿Qué día tenes disponible?</p>
+                    <p class="description text-center">¿Qué día y horario tenes disponible?</p>
                     <br>
                   </span>
-                  <input type="date" class="form-control" placeholder="dd/mm/aa" name="fecha">
-                  <span class="input-group-text">
+                  <input type="datetime-local" class="form-control"  name="fechaHora">
+                  <!--span class="input-group-text">
                     <p class="description text-center ">¿Qué horario?</p>
                     <br>
                   </span>
-                  <input type="time" class="form-control" placeholder="00:00" name="horario">
+                  <input type="time" class="form-control" placeholder="00:00" name="horario"-->
                 <div class="card-body">
                   <div class="select-group">
                     <div class="select-group-prepend">
